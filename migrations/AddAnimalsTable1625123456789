@@ -1,0 +1,11 @@
+import { MigrationInterface, QueryRunner } from 'typeorm';
+
+export class AddAnimalsTable1625123456789 implements MigrationInterface {
+public async up(queryRunner: QueryRunner): Promise<void> {
+await queryRunner.query('ALTER TABLE animals ADD COLUMN name VARCHAR(255) NOT NULL, ADD COLUMN species VARCHAR(255) NOT NULL, ADD COLUMN age INT;');
+}
+
+public async down(queryRunner: QueryRunner): Promise<void> {
+await queryRunner.query('ALTER TABLE animals DROP COLUMN name, DROP COLUMN species, DROP COLUMN age;');
+}
+}
